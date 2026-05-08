@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Form</title>
+</head>
+<body>
+
+    <h2>Student Registration</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <hr>
+
+    <h3>Stored Students</h3>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.course }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
